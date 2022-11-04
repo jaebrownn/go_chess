@@ -53,28 +53,15 @@ func (b *BitBoard) IsSet(rank int, file int) bool {
 
 // Set sets the bit at the given rank and file to 1
 func (b *BitBoard) Set(rank int, file int) {
-
 	*b |= 1 << (rank*8 + file)
 }
 
 // Clear sets the bit at the given rank and file to 0
 func (b *BitBoard) Clear(rank int, file int) {
-	// an unsigned 64 bit integer has 64 bits
-	// we want to check the bit at the given rank and file
-	// so we need to shift the 1 bit to the left by the rank and file
-	// and then AND it with the bitboard
-	// if the result is 0, then the bit was not set
-	// if the result is 1, then the bit was set
 	*b &= ^(1 << (rank*8 + file))
 }
 
 // Toggle toggles the bit at the given rank and file
 func (b *BitBoard) Toggle(rank int, file int) {
-	// an unsigned 64 bit integer has 64 bits
-	// we want to check the bit at the given rank and file
-	// so we need to shift the 1 bit to the left by the rank and file
-	// and then AND it with the bitboard
-	// if the result is 0, then the bit was not set
-	// if the result is 1, then the bit was set
 	*b ^= 1 << (rank*8 + file)
 }
